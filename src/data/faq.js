@@ -32,7 +32,7 @@ export const faqList = [
   {
     id: "durasi",
     question: "Berapa lama durasi sesi fotonya?",
-    keywords: ["durasi", "lama", "waktu", "jam", "menit"],
+    keywords: ["durasi", "lama sesi", "waktu sesi", "jam", "menit"],
     answer:
       "Tergantung paket — Portrait dan Wisuda maksimal 60 menit, Event maksimal 2 jam. Bisa ada tambahan waktu (overtime) dengan biaya tambahan.",
   },
@@ -46,9 +46,41 @@ export const faqList = [
   {
     id: "pembayaran",
     question: "Sistem pembayarannya gimana?",
-    keywords: ["bayar", "dp", "transfer", "pembayaran", "cicil"],
+    keywords: ["dp", "transfer", "pembayaran", "cicil", "metode bayar"],
     answer:
       "Untuk detail metode pembayaran dan DP, langsung tanyain ke admin via WhatsApp saat booking ya.",
+    link: { label: "Chat WhatsApp", href: "https://wa.me/6285659881470", external: true },
+  },
+  {
+    id: "jumlah-foto",
+    question: "Dapat berapa foto per paket?",
+    keywords: ["jumlah foto", "berapa foto", "hasil foto", "foto edit"],
+    answer:
+      "Portrait dapat 8 foto pilihan, Wisuda dapat 5 foto edit, Event dapat 20 foto edit pilihan. Semua file mentah/high-res juga tetap dikirim via Google Drive.",
+    link: { label: "Lihat detail tiap paket", href: "/#layanan" },
+  },
+  {
+    id: "reschedule",
+    question: "Bisa reschedule atau batal nggak?",
+    keywords: ["reschedule", "batal", "ganti tanggal", "cancel", "ubah jadwal"],
+    answer:
+      "Bisa, tapi kebijakan reschedule/pembatalan (misal batas waktu H- berapa hari) langsung dikonfirmasi ke admin via WhatsApp ya, biar jelas sesuai kondisi booking kamu.",
+    link: { label: "Chat WhatsApp", href: "https://wa.me/6285659881470", external: true },
+  },
+  {
+    id: "sosmed",
+    question: "Ada Instagram atau kontak lain?",
+    keywords: ["instagram", "ig", "sosmed", "email", "kontak lain"],
+    answer:
+      "Ada — Instagram @vesperstudio.id dan email vesperstudio07@gmail.com. Semua kontak lengkap ada di halaman Contact.",
+    link: { label: "Lihat halaman Contact", href: "/kontak" },
+  },
+  {
+    id: "luar-area",
+    question: "Bisa foto di luar Cirebon/Kuningan?",
+    keywords: ["luar kota", "luar area", "diluar cirebon", "kota lain", "outstation"],
+    answer:
+      "Untuk lokasi di luar Cirebon, Kuningan, dan sekitarnya, kemungkinan bisa dengan biaya transport tambahan — konfirmasi dulu ke admin ya biar dihitung sesuai jaraknya.",
     link: { label: "Chat WhatsApp", href: "https://wa.me/6285659881470", external: true },
   },
 ];

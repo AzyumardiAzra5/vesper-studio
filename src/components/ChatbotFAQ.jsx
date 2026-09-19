@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import { faqList, waFallbackLink } from "../data/faq";
+import chatbotLogo from "../assets/images/chatbot-icon.png";
 
 // Chatbot FAQ murni client-side — nggak ada API, nggak ada biaya.
 // Cara kerja: pengunjung klik salah satu pertanyaan cepat, ATAU ketik bebas
@@ -9,36 +10,6 @@ import { faqList, waFallbackLink } from "../data/faq";
 function matchFaq(text) {
   const lower = text.toLowerCase();
   return faqList.find((f) => f.keywords.some((k) => lower.includes(k)));
-}
-
-// Icon custom: aperture kamera (bukan bubble chat generik) + bintang kecil
-// di tengah, merepresentasikan "Vesper" = bintang senja. Dipakai gantian
-// sama ikon silang (X) pas panel lagi kebuka.
-function ApertureStarIcon({ className }) {
-  const blades = Array.from({ length: 6 });
-  return (
-    <svg viewBox="0 0 48 48" className={className} fill="none">
-      <circle cx="24" cy="24" r="20" stroke="currentColor" strokeWidth="1.4" opacity="0.35" />
-      {blades.map((_, i) => (
-        <line
-          key={i}
-          x1="24"
-          y1="24"
-          x2="24"
-          y2="7"
-          stroke="currentColor"
-          strokeWidth="2.2"
-          strokeLinecap="round"
-          opacity="0.85"
-          transform={`rotate(${i * 60} 24 24)`}
-        />
-      ))}
-      <path
-        d="M24 15.5c.9 3.4 1.7 4.2 5.1 5.1-3.4.9-4.2 1.7-5.1 5.1-.9-3.4-1.7-4.2-5.1-5.1 3.4-.9 4.2-1.7 5.1-5.1Z"
-        fill="currentColor"
-      />
-    </svg>
-  );
 }
 
 function CloseIcon({ className }) {
@@ -109,10 +80,12 @@ export default function ChatbotFAQ() {
         <button
           onClick={toggle}
           aria-label={open ? "Tutup chatbot" : "Buka chatbot FAQ"}
-          className="relative w-14 h-14 rounded-full bg-maroon hover:bg-maroon-deep text-cream shadow-lg flex items-center justify-center transition-transform duration-200 hover:scale-105 active:scale-90"
+          className="relative w-14 h-14 rounded-full bg-maroon hover:bg-maroon-deep text-cream shadow-lg flex items-center justify-center overflow-hidden transition-transform duration-200 hover:scale-105 active:scale-90"
         >
-          <ApertureStarIcon
-            className={`w-7 h-7 absolute transition-all duration-300 ${
+          <img
+            src={chatbotLogo}
+            alt=""
+            className={`w-full h-full object-cover absolute transition-all duration-300 ${
               open ? "opacity-0 rotate-90 scale-50" : "opacity-100 rotate-0 scale-100"
             }`}
           />
@@ -132,7 +105,7 @@ export default function ChatbotFAQ() {
           }`}
         >
           <div className="bg-maroon-deep text-cream px-4 py-3 flex items-center gap-2.5">
-            <ApertureStarIcon className="w-6 h-6 flex-shrink-0" />
+            <img src={chatbotLogo} alt="" className="w-8 h-8 rounded-full flex-shrink-0" />
             <div>
               <p className="font-display text-base leading-none">VESPER Studio</p>
               <p className="text-xs text-cream/70 mt-1">Tanya cepat, jawab otomatis</p>
@@ -169,7 +142,7 @@ export default function ChatbotFAQ() {
           </div>
 
           <div className="px-4 pb-2 flex flex-wrap gap-1.5">
-            {faqList.slice(0, 4).map((f) => (
+            {faqList.slice(0, 6).map((f) => (
               <button
                 key={f.id}
                 onClick={() => handleQuickQuestion(f)}
