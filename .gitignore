@@ -1,0 +1,1 @@
+node_modules/ dist/ dist-ssr/ *.log .DS_Store .vscode/ .env .env.local .env.*.local
